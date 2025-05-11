@@ -1,5 +1,6 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import render
+
 
 # Create your views here.
 def login(request):
-    return HttpResponse("Login Page")
+    return render(request, "accounts/login.html")
