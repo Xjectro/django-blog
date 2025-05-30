@@ -11,7 +11,7 @@ def getRoutes(request):
 
 
 @api_view(["POST"])
-def register(request):
+def register_view(request):
     form = UserCreationForm(request.data)
     if form.is_valid():
         user = form.save()
@@ -20,7 +20,7 @@ def register(request):
 
 
 @api_view(["POST"])
-def login(request):
+def login_view(request):
     username = request.data.get("username")
     password = request.data.get("password")
     user = authenticate(request, username=username, password=password)

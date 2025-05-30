@@ -22,6 +22,6 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("health/", views.health_check),
-    path("accounts/", include("apps.accounts.urls")),
-    path("api/accounts/", include('apps.accounts.api.urls'))
+    path("auth/", include("apps.auth.urls")),
+    path("api/auth/", include(('apps.auth.api.urls', 'auth_api'), namespace='auth_api'))
 ]

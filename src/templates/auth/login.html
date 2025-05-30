@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-12 p-6 bg-white shadow-md rounded-lg">
+  <h2 class="text-2xl font-semibold mb-6 text-center">Login</h2>
+  <form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="mb-4">
+      {{ form.username.label_tag }}
+      {{ form.username }}
+      {% if form.username.errors %}
+        <p class="text-red-600 text-sm mt-1">{{ form.username.errors.0 }}</p>
+      {% endif %}
+    </div>
+    <div class="mb-4">
+      {{ form.password.label_tag }}
+      {{ form.password }}
+      {% if form.password.errors %}
+        <p class="text-red-600 text-sm mt-1">{{ form.password.errors.0 }}</p>
+      {% endif %}
+    </div>
+    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded">Login</button>
+  </form>
+</div>
+{% endblock %}
